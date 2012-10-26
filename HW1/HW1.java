@@ -1,39 +1,35 @@
 Interface ITournament {}
-
-class initMatch implements ITournament {
-  matchData data;
-  initMatch (data) {
+class InitMatch implements ITournament {
+  MatchData data;
+  InitMatch (MatchData data) {
     this.data=data;
   }
 }
-
-class advanceMatch implements ITournament {
-  matchData data;
-  tournament feeder1;
-  tournament feeder2;
-  advanceMatch (data,feeder1,feeder2) {
+class AdvanceMatch implements ITournament {
+  MatchData data;
+  Tournament feeder1;
+  Tournament feeder2;
+  AdvanceMatch (MatchData data,Tournament feeder1,Tournament feeder2) {
     this.data=data;
     this.feeder1.feeder1;
     this.feeder2=feeder2;
   }
 }
-
-class matchData {
+class MatchData {
   String team1;
   String team2;
-  soccerScore score;
-  matchData(team1,team2,score) {
+  SoccerScore score;
+  matchData(String team1,String team2,SoccerScore score) {
     this.team1=team1;
     this.team2=team2;
     this.score=score;
   }
 }
-
-class soccerScore {
+class SoccerScore {
   int goals1;
   int goals2;
   boolean extraTime;
-  soccerScore(goals1,goals2,extraTime) {
+  soccerScore(int goals1,int goals2,boolean extraTime) {
     this.goals1=goals1;
     this.goals2=goals2;
     this.extraTime=extraTime;
