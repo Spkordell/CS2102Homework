@@ -1,12 +1,24 @@
+/*
+Purpose:
+Date:
+Authors:
+*/
 //To Do
+//Include code header
 //Extend your current definitions to also support baseball scores.
 //Add Main.c
 //Add example Data
 //Add Methodss
-
 //And yes, it's one file, but it's under 200 lines, so I think it's fine. If you want to break it up, go for it.
 
 Interface ITournament {}
+
+//To ensure all score classes have an isValid method, an interface was created containing the method name.
+//All classes related to scoring should implement this interface.
+Interface IScores {
+  isValid();
+}
+
 class InitMatch implements ITournament {
   MatchData data;
   InitMatch (MatchData data) {
@@ -33,7 +45,7 @@ class MatchData {
     this.score=score;
   }
 }
-class SoccerScore {
+class SoccerScore Implements IScores{
   int goals1;
   int goals2;
   boolean extraTime;
@@ -46,7 +58,7 @@ class SoccerScore {
     return ((this.goals1==this.goals2) && extraTime);
   }
 }
-class BaseballScore {
+class BaseballScore Implements IScores{
   int runs1;
   int runs2;
   int totalInnings;
@@ -62,4 +74,5 @@ class BaseballScore {
 
 class Examples {
   Examples(){}
+  //Example Data Here
 }
