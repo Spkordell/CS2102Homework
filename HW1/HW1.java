@@ -34,14 +34,17 @@ class AdvanceMatch implements ITournament {
     this.feeder2=feeder2;
   }
 }
-class MatchData {
+class MatchData implements IScores { //should this implement IScores? Or should a new interfce be made? If it implements IScores, it needs an isValid Method, which doens't really make sense here, or actually, maybe it does...I'm not sure. Thoughts?
   String team1;
   String team2;
-  SoccerScore score;
-  MatchData(String team1,String team2,SoccerScore score) {
+  IScores score; //previously defined as type soccerScore
+  MatchData(String team1,String team2,IScores score) {
     this.team1=team1;
     this.team2=team2;
     this.score=score;
+  }
+  public boolean isValid() {
+    return this.score.isValid();
   }
 }
 class SoccerScore implements IScores {
@@ -74,5 +77,6 @@ class BaseballScore implements IScores{
 class Examples {
   Examples(){}
   InitMatch soccerMatch1 = new InitMatch(new MatchData("aCleverSoccerTeamNameHere","anotherCleverSoccerTeamNameHere",new SoccerScore(12,12,false))); //Not a Valid Score
-  //Example Data Here
+  InitMatch baseballMatch1 = new InitMatch(new MatchData("aCleverBaseballTeamNameHere","anotherCleverbaseBallTeamNameHere",new BaseballScore(5,628,9))); //Is a valid Score    
+  //Need examples of advance Match and methods
 }
