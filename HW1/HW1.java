@@ -8,7 +8,7 @@ Authors:
 //Extend your current definitions to also support baseball scores.
 //Add Main.c
 //Add example Data
-//Add Methodss
+//Add Methods
 //And yes, it's one file, but it's under 200 lines, so I think it's fine. If you want to break it up, go for it.
 
 Interface ITournament {}
@@ -18,7 +18,6 @@ Interface ITournament {}
 Interface IScores {
   isValid();
 }
-
 class InitMatch implements ITournament {
   MatchData data;
   InitMatch (MatchData data) {
@@ -74,5 +73,6 @@ class BaseballScore Implements IScores{
 
 class Examples {
   Examples(){}
+  InitMatch soccerMatch1 = new InitMatch(new MatchData("aCleverSoccerTeamNameHere","anotherCleverSoccerTeamNameHere",new SoccerScore(12,12,false))); //Not a Valid Score
   //Example Data Here
 }
