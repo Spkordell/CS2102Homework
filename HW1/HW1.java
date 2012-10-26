@@ -1,23 +1,25 @@
 /*
 Purpose:
-Date:
-Authors:
+Date: 10/25/2012
+Authors: Robert Dabrowski, Steve Kelly, Steven Kordell
 */
 //To Do
 //Include code header
-//Extend your current definitions to also support baseball scores.
-//Add Main.c
-//Add example Data
-//Add Methods
+//Comment ALL the code
+//"Extend your current definitions to also support baseball scores." //Is the way I did it right?
+//Add MORE example Data
+//Add MORE Methods
 //And yes, it's one file, but it's under 200 lines, so I think it's fine. If you want to break it up, go for it.
 
-interface ITournament {}
+import tester.* ;
 
 //To ensure all score classes have an isValid method, an interface was created containing the method name.
 //All classes related to scoring should implement this interface.
 interface IScores {
   boolean isValid();
 }
+interface ITournament {}
+
 class InitMatch implements ITournament {
   MatchData data;
   InitMatch (MatchData data) {
@@ -77,6 +79,14 @@ class BaseballScore implements IScores{
 class Examples {
   Examples(){}
   InitMatch soccerMatch1 = new InitMatch(new MatchData("aCleverSoccerTeamNameHere","anotherCleverSoccerTeamNameHere",new SoccerScore(12,12,false))); //Not a Valid Score
-  InitMatch baseballMatch1 = new InitMatch(new MatchData("aCleverBaseballTeamNameHere","anotherCleverbaseBallTeamNameHere",new BaseballScore(5,628,9))); //Is a valid Score    
-  //Need examples of advance Match and methods
+  InitMatch baseballMatch1 = new InitMatch(new MatchData("aCleverBaseballTeamNameHere","anotherCleverbaseBallTeamNameHere",new BaseballScore(5,628,9))); //Is a valid Score      
+  boolean test1(Tester t) {
+    return t.checkExpect(soccerMatch1.data.score.isValid(),false);
+  }
+  boolean test2(Tester t) {
+    return t.checkExpect(baseballMatch1.data.score.isValid(),true);
+  }
+  
+  //Need examples of advance Match and methods and maybe more examples of InitMatch
+  
 }
