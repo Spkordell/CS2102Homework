@@ -1,11 +1,11 @@
 
-public class AdvanceMatch implements ITournament{
-	MatchData data;
+class AdvanceMatch extends AbsMatch{
+	
 	ITournament feeder1;
 	ITournament feeder2;
 	// constructor
 	AdvanceMatch (MatchData data,	ITournament feeder1, ITournament feeder2){
-		this.data = data;
+		super(data);
 		this.feeder1 = feeder1;
 		this.feeder2 = feeder2;
 		}
@@ -33,15 +33,8 @@ public class AdvanceMatch implements ITournament{
 		return false;  // if either of the questions above fail to find the team in a previous game, this returns false
 	}
 	
-	// getName is a shortcut for getting the string name from the match of team1 or team2 based on the input 
-	// This method is meant to only be called within the program and not by the user. The only inputs that this should
-	// get are the integers "1" and "2"
-	public String getName (int num){  
-		if (num == 1){
-			return this.data.team1;  
-		}
-		return this.data.team2;     // if it isn't 1, then it is 2 and we can just do this
-	}	
+	
+	
 	
 	// matchesPlayed takes the string name of a team and returns the number of games that team played in
 	public int matchesPlayed (String ateam){
