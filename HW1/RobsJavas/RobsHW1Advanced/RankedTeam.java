@@ -9,7 +9,4 @@ public class RankedTeam extends AbsRanked {
 		this.captain = captain;
 		this.numplayers = numplayers;
 	}
-	
-	
-	
 }
